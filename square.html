@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <body style="">
+        <canvas id="myCanvas" style="height: 100%; width: 100%; border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 tag.
+        </canvas>
+
+        <script>
+            var myCanvas = document.getElementById("myCanvas");
+            var context = myCanvas.getContext("2d");
+
+            var x = 2;
+            var y = 2;
+
+            setInterval(function() {
+                context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+                context.beginPath();
+                context.rect(x, y, 20, 20);
+                context.stroke();  
+
+                if (x+30 <= context.canvas.width && y <= 2) {
+                   x += 10;
+                } else if (y+30 <= context.canvas.height && x+30 >= context.canvas.width) {
+                    y += 10;
+                } else if (x-18 > 2){
+                    x -= 10;
+                } else {
+                    y -= 10;
+                }
+             }, 100);
+        </script>
+    </body>
+</html>
